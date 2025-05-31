@@ -1,7 +1,6 @@
 import os
 
 palavra_secreta = 'Teste'
-palavra_secreta_escondida = ''
 letras_acertadas = ''
 qtd_tentativas = 0
 
@@ -16,12 +15,10 @@ while True:
     if letra_escolhida in palavra_secreta:
         letras_acertadas += letra_escolhida
 
-
     palavra_secreta_formada = ''
     for letra_secreta in palavra_secreta.lower():
         if letra_secreta in letras_acertadas:
             palavra_secreta_formada += letra_secreta
-            
         else:
             palavra_secreta_formada += '*'
 
