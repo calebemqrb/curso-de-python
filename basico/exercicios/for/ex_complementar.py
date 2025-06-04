@@ -19,7 +19,5 @@ resultado = []
 for nome in qtd_aparicoes_nome:
     resultado.append({'nome': nome, 'qtd_aparições': qtd_aparicoes_nome[nome]})
 
-
-
 print(json_filtrado)
 print(resultado)
