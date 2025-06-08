@@ -2,7 +2,7 @@ carrinho = []
 
 while True:
     try:
-        opcao = int(input("Escolha uma opção: \n" 
+        opcao = int(input("\nEscolha uma opção: \n" 
         "1 - Inserir produto \n" 
         "2 - Apagar produto \n"
         "3 - Listar produtos\n" \
@@ -15,40 +15,35 @@ while True:
             print("\nEscolha uma opção válida!\n")
 
         if opcao == 1:
-            produto_a_inserir = str(input("Digite o nome do produto que deseja inserir:\n"))
+            produto_a_inserir = str(input("\nDigite o nome do produto que deseja inserir:\n"))
             for produto in carrinho:
                 if produto == produto_a_inserir:
-                    print('O produto já esta no carrinho')
+                    print('\nO produto já esta no carrinho\n')
                     break
             carrinho.append(produto_a_inserir.lower())
 
         if opcao == 2:
 
-            #Corrigir essa opção
-            #Falha ao tentar apagar passando indice do produto
-            #Problema: o input transforma os dados recebidos em str
-            #Solução pensada: outro input: int(input)
+            opcao_apagar_produto = int(input("\nDe qual forma deseja apagar o produto?\n" \
+            "1 - Pelo indice\n" \
+            "2 - Pelo nome\n"))
 
-            produto_a_apagar = input("Digite o indice ou nome do produto que deseja apagar:\n")
-            print(type(produto_a_apagar))
-            if type(produto_a_apagar) == str:
-                for produto in carrinho:
-                    if produto == produto_a_apagar.lower():
-                        carrinho.remove(produto)
-                        break
-            elif type(produto_a_apagar) == int:
-                for i in len(carrinho):
-                    if i == produto_a_apagar:
-                        print(i, produto_a_apagar)
+            if opcao_apagar_produto == 1:
+                indice_produto_a_apagar = int(input("\nDigite o indice do produto que deseja apagar:\n"))
+                for i, _ in enumerate(carrinho):
+                    if i == indice_produto_a_apagar:
                         carrinho.remove(carrinho[i])
                         break
-
-            else:
-                print('Tipo de dado invalido')
+            elif opcao_apagar_produto == 2:
+                nome_produto_a_apagar = input("\nDigite o nome do produto que deseja apagar:\n")
+                for produto in carrinho:
+                    if produto == nome_produto_a_apagar.lower():
+                        carrinho.remove(produto)
+                        break
 
         if opcao == 3:
             if carrinho == []:
-                print('O carrinho esta vazio')
+                print('\nO carrinho esta vazio\n')
             else:
                 for produtos in enumerate(carrinho):
                     print(produtos)
